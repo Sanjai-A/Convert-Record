@@ -1,0 +1,57 @@
+<template>
+    <lightning-quick-action-panel header="Convert">
+        <lightning-card>
+            <div style="margin-left: 2%;">
+                <div>
+                    <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small">
+                        <span>Track Progress</span>
+                        <span aria-hidden="true">
+                            <strong>{progress}% </strong>
+                        </span>
+                    </div>
+                </div>
+        <lightning-progress-bar value={progress} variant="circular" size="large"></lightning-progress-bar>
+            </div>
+                   <lightning-layout multiple-rows>
+               
+                        <lightning-layout-item size="4" padding="around-small">
+                               <lightning-combobox name="objectName" 
+                                label="Select Object"
+                                value="" 
+                                placeholder="Object" 
+                                options={objects} 
+                                onchange={handleObjectChange}
+                                ></lightning-combobox>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" padding="around-small">
+                                <!-- <lightning-combobox
+                                name="Fields"
+                                label="Select Field"
+                                value=""
+                                placeholder="Field"
+                                options={fields}
+                                onchange={handleFieldChange}
+                                
+                        ></lightning-combobox> -->
+                        <lightning-dual-listbox name="languages"
+                            label="Select Fields"
+                            source-label="Available"
+                            selected-label="Selected"
+                            field-level-help="Select Fields"
+                            options={fields}
+                            onchange={handleFieldChange}></lightning-dual-listbox>
+                        </lightning-layout-item>
+            </lightning-layout></br>
+            </lightning-card>
+      <div slot="footer">
+        <lightning-button class="slds-p-around_xx-small" variant="neutral" label="Cancel" onclick={closeAction}
+        ></lightning-button>
+        <lightning-button class="slds-p-around_xx-small" variant="brand" label="Convert" onclick={convertAction}></lightning-button>
+      </div>
+    </lightning-quick-action-panel>
+    
+
+
+
+    
+  </template>
