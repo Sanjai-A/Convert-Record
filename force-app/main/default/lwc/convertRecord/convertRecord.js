@@ -23,7 +23,6 @@ export default class QuickActionLWC extends LightningElement {
               currentObject:this.objectApiName,currentRecordid:this.recordId})
         .then(result => {
             this.record = result; 
-            console.log("Result From apex after record creation and recordId "+this.record);
             const evt = new ShowToastEvent({
                 title: "Success",
                 message: "Record Converted Successfully",
@@ -42,9 +41,7 @@ export default class QuickActionLWC extends LightningElement {
                 variant: 'error'
             });
             this.dispatchEvent(event);
-            // if ( error.body.message =='REQUIRED_FIELD_MISSING'){
-            // console.log("Required field Missing Error");
-            // }
+           
         });
   }
 
